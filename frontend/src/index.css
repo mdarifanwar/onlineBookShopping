@@ -1,0 +1,181 @@
+/* Improved form container styling for registration and login */
+.form-container {
+  margin: 60px auto 0 auto;
+  width: 100%;
+  max-width: 400px;
+  padding: 40px 32px 32px 32px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 32px 0 rgba(44, 62, 80, 0.13);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-container h2, .form-container h1 {
+  margin-bottom: 24px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a237e;
+  letter-spacing: 1px;
+}
+
+.form-container label {
+  align-self: flex-start;
+  margin-bottom: 6px;
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.form-container input[type="text"],
+.form-container input[type="email"],
+.form-container input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  border: 1px solid #bdbdbd;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #f8fafc;
+  transition: border 0.2s;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.form-container input[type="text"]:focus,
+.form-container input[type="email"]:focus,
+.form-container input[type="password"]:focus {
+  border: 1.5px solid #1976d2;
+  background: #fff;
+}
+
+.form-container button, .form-container input[type="submit"] {
+  width: 100%;
+  padding: 12px 0;
+  background: linear-gradient(90deg, #1976d2 60%, #1565c0 100%);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.form-container button:hover, .form-container input[type="submit"]:hover {
+  background: linear-gradient(90deg, #1565c0 60%, #1976d2 100%);
+  box-shadow: 0 4px 16px rgba(25, 118, 210, 0.13);
+}
+
+.form-container .form-link {
+  margin-top: 18px;
+  font-size: 1rem;
+  color: #333;
+  text-align: center;
+}
+
+.form-container .form-link a {
+  color: #1976d2;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 4px;
+  transition: color 0.2s;
+}
+.form-container .form-link a:hover {
+  color: #0d47a1;
+  text-decoration: underline;
+}
+
+/* Responsive for mobile */
+@media (max-width: 600px) {
+  .form-container {
+    padding: 24px 8px 18px 8px;
+    max-width: 95vw;
+  }
+  .form-container h2, .form-container h1 {
+    font-size: 1.4rem;
+  }
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+
+h1 {
+  margin: 20px 0;
+}
+
+nav {
+  background: #1e1e2f;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav h2 {
+  color: white;
+  margin: 0;
+}
+
+nav a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+footer {
+  background: #1e1e2f;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 30px;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  width: 280px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card button:hover {
+  background: #0056b3;
+}
+
+.book-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
