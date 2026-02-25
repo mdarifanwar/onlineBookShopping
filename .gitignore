@@ -1,3 +1,11 @@
+# Ignore environment and sensitive files
+.env
+backend/.env
+frontend/.env
+.env.*
+backend/.env.*
+frontend/.env.*
+
 # Node modules
 node_modules/
 
@@ -22,8 +30,6 @@ backend/build/
 backend/dist/
 
 # dotenv environment variables
-.env
-.env.*
 
 # OS files
 .DS_Store
