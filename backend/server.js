@@ -11,40 +11,36 @@ dotenv.config();
 
 const app = express();
 
-// ✅ CORS Configuration (Important for Vercel)
-const allowedOrigins = [
-  "http://localhost:3000",
-  "https://online-book-shopping-2gr9.vercel.app", // your Vercel URL
-];
+/* ===========================
+   Middleware
+=========================== */
 
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      } else {
-        return callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-  })
-);
+// ✅ Allow all origins (Fixes Vercel CORS issue)
+app.use(cors());
 
-// Middleware
+// ✅ Handle preflight requests
+app.options("*", cors());
+
+// ✅ Parse JSON request body
 app.use(express.json());
 
-// Routes
+/* ===========================
+   Routes
+=========================== */
+
 app.use("/api/users", userRoutes);
 app.use("/api/books", bookRoutes);
 app.use("/api/cart", cartRoutes);
 
-// Test route
+// Test Route
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
 
-// MongoDB Connection
+/* ===========================
+   MongoDB Connection
+=========================== */
+
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
