@@ -6,7 +6,9 @@ export const fetchBooks = createAsyncThunk(
   "books/fetch",
   async ({ page = 1, pageSize = 20 } = {}, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get(`http://localhost:5000/api/books?page=${page}&pageSize=${pageSize}`);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API_URL}/api/books?page=${page}&pageSize=${pageSize}`
+      );
       return data;
     } catch (error) {
       return rejectWithValue(
@@ -39,15 +41,17 @@ const bookSlice = createSlice({
     builder
       .addCase(fetchBooks.pending, (state) => {
         state.loading = true;
+        state.error = null;
       })
       .addCase(fetchBooks.fulfilled, (state, action) => {
         state.loading = false;
-        // If page === 1, replace; else, append
+
         if (action.payload.page === 1) {
           state.books = action.payload.books;
         } else {
           state.books = [...state.books, ...action.payload.books];
         }
+
         state.page = action.payload.page;
         state.pageSize = action.payload.pageSize;
         state.totalPages = action.payload.totalPages;
